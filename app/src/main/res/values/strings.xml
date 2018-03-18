@@ -1,3 +1,9 @@
 <resources>
-    <string name="app_name">My Application</string>
+    <string name="app_name">DoorDash Lite</string>
+    <string name="error_no_internet">Please Check Internet Connection</string>
+    <string name="single_restaurant_name">Restaurant Name: %s</string>
+    <string name="single_restaurant_status">Status: %s</string>
+    <string name="single_restaurant_food_description">Type of food: %s</string>
+    <string name="network_error">Network Error</string>
+    <string name="no_data_found">No Data Found</string>
 </resources>

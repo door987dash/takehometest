@@ -20,6 +20,7 @@ android {
 
 dependencies {
     // dagger
+    implementation 'com.android.support.constraint:constraint-layout:1.0.2'
     compile 'com.google.dagger:dagger:2.11'
     annotationProcessor 'com.google.dagger:dagger-compiler:2.11'
     // retrofit
@@ -31,10 +32,40 @@ dependencies {
     implementation 'com.android.support:recyclerview-v7:26.1.0'
     // gson
     compile 'com.google.code.gson:gson:2.8.2'
+    compile 'com.squareup.retrofit2:converter-gson:2.4.0'
+
+    implementation("com.github.bumptech.glide:glide:4.6.1") {
+        exclude group: "com.android.support"
+    }
+    implementation "com.android.support:support-fragment:26.1.0"
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.6.1'
 
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation 'com.android.support.constraint:constraint-layout:1.0.2'
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.1'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
+
+    testCompile "org.mockito:mockito-core:2.16.0"
+
+    testImplementation "org.robolectric:robolectric:3.8"
+
+    androidTestAnnotationProcessor 'com.google.dagger:dagger-compiler:2.11'
+    testAnnotationProcessor 'com.google.dagger:dagger-compiler:2.11'
+    testCompile 'com.google.dagger:dagger-compiler:2.11'
+
+    android {
+        testOptions {
+            unitTests {
+                includeAndroidResources = true
+            }
+        }
+    }
+
+    // need this for dagger
+    android.applicationVariants.all {
+        def aptOutputDir = new File(buildDir, "generated/source/apt/${it.unitTestVariant.dirName}")
+        it.unitTestVariant.addJavaSourceFoldersToModel(aptOutputDir)
+    }
+
+
 }

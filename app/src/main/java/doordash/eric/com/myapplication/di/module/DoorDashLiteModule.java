@@ -8,7 +8,6 @@ package doordash.eric.com.myapplication.di.module;
 
 import android.app.Application;
 import android.content.Context;
-import android.view.inputmethod.InputMethodManager;
 
 import com.google.gson.FieldNamingPolicy;
 import com.google.gson.Gson;
@@ -18,7 +17,6 @@ import javax.inject.Singleton;
 
 import dagger.Module;
 import dagger.Provides;
-import dagger.Reusable;
 
 /**
  * Created by Eric on 10/8/2017.
